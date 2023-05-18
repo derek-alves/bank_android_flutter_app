@@ -1,0 +1,39 @@
+name: main_app
+description: A new Flutter module project.
+publish_to: none
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.6 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  micro_core:
+    path: ../micro_core/
+
+  micro_app_profile:
+    path: ../apps/micro_app_profile/
+
+  micro_app_settings:
+    path: ../apps/micro_app_settings/
+
+  dependencies:
+    path: ../commons/dependencies/
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  pigeon: 9.2.5
+
+flutter:
+  uses-material-design: true
+  module:
+    androidX: true
+    androidPackage: com.main_app.main_app
+    iosBundleIdentifier: com.mainapp.mainApp
