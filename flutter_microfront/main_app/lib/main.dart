@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:micro_app_profile/app/micro_app_profile_resolver.dart';
-import 'package:micro_app_settings/app/micro_app_settings_resolver.dart';
+import 'package:micro_app_profile/micro_app_profile.dart';
+import 'package:micro_app_settings/micro_app_settings.dart';
+import 'package:micro_app_statements/micro_app_statements.dart';
+
 import 'package:micro_core/micro_core.dart';
 
 import 'api.dart' as api;
@@ -8,6 +10,7 @@ import 'src/pages/pages.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Paint.enableDithering = true;
   runApp(MyApp());
 }
 
@@ -18,16 +21,16 @@ class MyApp extends StatefulWidget with BaseApp {
     super.registerListeners();
     super.registerFeatures();
 
-    final List<api.Feature> features = super
-        .features
-        .map(
-          (feature) => api.Feature(
-            name: feature.name,
-            route: feature.baseRoute,
-          ),
-        )
-        .toList();
-    api.FeatureHostApi().syncFeatures(features);
+    // final List<api.Feature> features = super
+    //     .features
+    //     .map(
+    //       (feature) => api.Feature(
+    //         name: feature.name,
+    //         route: feature.baseRoute,
+    //       ),
+    //     )
+    //     .toList();
+    // api.FeatureHostApi().syncFeatures(features);
   }
 
   @override
@@ -38,6 +41,7 @@ class MyApp extends StatefulWidget with BaseApp {
 
   @override
   List<MicroApp> get microApps => [
+        MicroAppStatementsResolver(),
         MicroAppProfileResolver(),
         MicroAppSettingsResolver(),
       ];
@@ -56,7 +60,17 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       navigatorKey: globalNavigatorKey,
       onGenerateRoute: widget.generateRoute,
-      initialRoute: '/profile',
+      initialRoute: '/statements',
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.dark,
+      darkTheme: ThemeData(
+        fontFamily: "Inter",
+        scaffoldBackgroundColor: const Color(0xff0D0D0D),
+        colorScheme: const ColorScheme.dark().copyWith(
+          surfaceTint: const Color(0xff0D0D0D),
+          surface: const Color(0xff0D0D0D),
+        ),
+      ),
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute<void>(
           settings: settings,

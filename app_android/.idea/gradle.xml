@@ -11,6 +11,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/dependencies" />
+            <option value="$PROJECT_DIR$/dependenciesModule" />
+            <option value="$PROJECT_DIR$/dependencies_module" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,6 +1,6 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\Users\derek\fvm\versions\3.7.9"
+export "FLUTTER_ROOT=C:\Users\derek\fvm\versions\3.10.1"
 export "FLUTTER_APPLICATION_PATH=C:\Users\derek\Documents\projects\flutter_android_microfront\flutter_microfront\commons\event_bus"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib\main.dart"
