@@ -3,6 +3,7 @@ package com.bank.app_android.ui.components
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.RelativeLayout
 import com.bank.app_android.R
 import com.bank.app_android.databinding.CustomAppBarBinding
@@ -15,5 +16,7 @@ class CustomAppBar(context: Context, attrs: AttributeSet) : RelativeLayout(conte
     init {
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.CustomAppBar)
         binding.title.text = attributes.getString(R.styleable.CustomAppBar_title)
+        val showBackButton = attributes.getBoolean(R.styleable.CustomAppBar_showBackButton, true)
+        binding.backBtn.visibility = if (showBackButton) View.VISIBLE else View.GONE
     }
 }

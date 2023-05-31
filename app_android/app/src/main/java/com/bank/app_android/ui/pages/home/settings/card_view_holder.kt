@@ -1,4 +1,4 @@
-package com.bank.app_android.ui.pages.settings
+package com.bank.app_android.ui.pages.home.settings
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding

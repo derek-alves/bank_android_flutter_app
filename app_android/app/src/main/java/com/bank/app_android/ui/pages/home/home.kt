@@ -9,16 +9,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
 import androidx.navigation.compose.rememberNavController
 import com.bank.app_android.R
-import com.bank.app_android.routes.NavigationHost
+import com.bank.app_android.infra.routes.NavigationHost
 import com.bank.app_android.ui.components.BottomMenuContent
 import com.bank.app_android.ui.components.CustomBottomBar
 
 
 @Composable
 fun Home() {
-
     val navController = rememberNavController()
-
     Scaffold() { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
             NavigationHost(navController = navController)

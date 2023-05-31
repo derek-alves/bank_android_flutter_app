@@ -7,10 +7,10 @@ class GenericMicroAppError extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.red),
-      body: Column(
+      body: const Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               "Serviço indisponível no momento, tente mais tarde",
               style: TextStyle(

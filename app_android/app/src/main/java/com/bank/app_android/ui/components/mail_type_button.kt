@@ -30,7 +30,7 @@ class MailTypeButton(context: Context, attrs: AttributeSet) : RelativeLayout(con
 
     }
 
-    fun setPressedButton() {
+    private fun setPressedButton() {
         binding.mailTypeButton.background = if (pressedButton)
             resources.getDrawable(
                 R.drawable.button_gradient,

@@ -12,6 +12,7 @@
     >
    <com.bank.app_android.ui.components.CustomAppBar
        app:title="@string/mail"
+       app:showBackButton="false"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"/>
 
@@ -30,75 +31,56 @@
             android:paddingBottom="12dp"
             >
 
-            <Button
+            <com.bank.app_android.ui.components.MailTypeButton
                 android:id="@+id/allButton"
-                android:layout_width="70dp"
-                android:layout_height="26dp"
-                android:background="@drawable/button_gradient"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/all_button"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:type="All"
+                app:selected="true"
                 app:layout_constraintEnd_toStartOf="@+id/noticeButton"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
-
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck,DuplicateClickableBoundsCheck" />
+                />
 
-            <Button
-
+            <com.bank.app_android.ui.components.MailTypeButton
                 android:id="@+id/noticeButton"
-                android:layout_width="70dp"
-                android:layout_height="26dp"
-                android:background="@drawable/button_outilined"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/notice_button"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:type="Notice"
+                app:selected="false"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/promoButton"
                 app:layout_constraintStart_toEndOf="@+id/allButton"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck" />
+                />
 
-            <Button
+            <com.bank.app_android.ui.components.MailTypeButton
                 android:id="@+id/promoButton"
-                android:layout_width="70dp"
-                android:layout_height="26dp"
-                android:background="@drawable/button_outilined"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/promo_button"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:type="Promo"
+                app:selected="false"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/eventButton"
                 app:layout_constraintStart_toEndOf="@+id/noticeButton"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck" />
+                />
 
-            <Button
+            <com.bank.app_android.ui.components.MailTypeButton
                 android:id="@+id/eventButton"
-                android:layout_width="70dp"
-                android:layout_height="26dp"
-                android:background="@drawable/button_outilined"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/event_button"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:type="Event"
+                app:selected="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/promoButton"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
-                tools:ignore="TouchTargetSizeCheck" />
-
+                />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:dependencies/dependencies.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +72,7 @@ class _ChartCustomState extends State<ChartCustom> {
               gradient: LinearGradient(
                 colors: [
                   const Color(0xff35190A),
-                  Color(0xff0D0D0D).withAlpha(150)
+                  const Color(0xff0D0D0D).withAlpha(150)
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
