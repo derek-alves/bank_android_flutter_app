@@ -19,11 +19,10 @@ class Route {
 }
 
 @HostApi()
-abstract class FeatureHostApi {
-  void syncFeatures(List<Feature> features);
-}
+abstract class FeatureHostApi {}
 
 @FlutterApi()
 abstract class FeatureFlutterApi {
   void navigateTo(Route route);
+  List<Feature> syncFeatures();
 }

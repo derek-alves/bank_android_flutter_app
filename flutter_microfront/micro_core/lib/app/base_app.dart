@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'micro_app.dart';
 import 'micro_core_utils.dart';
 
-abstract class BaseApp {
+mixin BaseApp {
   List<MicroApp> get microApps;
 
   Map<String, WidgetBuilderArgs> get baseRoutes;

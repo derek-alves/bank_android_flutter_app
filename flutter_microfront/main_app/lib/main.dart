@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:micro_app_profile/micro_app_profile.dart';
 import 'package:micro_app_settings/micro_app_settings.dart';
 import 'package:micro_app_statements/micro_app_statements.dart';
-
 import 'package:micro_core/micro_core.dart';
 
 import 'api.dart' as api;
@@ -10,7 +9,7 @@ import 'src/pages/pages.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Paint.enableDithering = true;
+
   runApp(MyApp());
 }
 
@@ -20,17 +19,6 @@ class MyApp extends StatefulWidget with BaseApp {
     super.registerInjections();
     super.registerListeners();
     super.registerFeatures();
-
-    // final List<api.Feature> features = super
-    //     .features
-    //     .map(
-    //       (feature) => api.Feature(
-    //         name: feature.name,
-    //         route: feature.baseRoute,
-    //       ),
-    //     )
-    //     .toList();
-    // api.FeatureHostApi().syncFeatures(features);
   }
 
   @override
@@ -52,7 +40,9 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
 
-    api.FeatureFlutterApi.setup(FlutterBookApiHendler());
+    api.FeatureFlutterApi.setUp(FlutterBookApiHendler(
+      features: widget.features,
+    ));
   }
 
   @override
@@ -82,9 +72,27 @@ class _MyAppState extends State<MyApp> {
 }
 
 class FlutterBookApiHendler extends api.FeatureFlutterApi {
+  final List<MicroAppFeature> features;
+
+  FlutterBookApiHendler({required this.features});
+
   @override
   void navigateTo(api.Route route) {
     globalNavigatorKey.currentState
         ?.pushReplacementNamed(route.path, arguments: route.data);
+  }
+
+  @override
+  List<api.Feature> syncFeatures() {
+    final List<api.Feature> apiFeatures = features
+        .map(
+          (feature) => api.Feature(
+            name: feature.name,
+            route: feature.baseRoute,
+          ),
+        )
+        .toList();
+
+    return apiFeatures;
   }
 }

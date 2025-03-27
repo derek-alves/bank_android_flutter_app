@@ -1,11 +1,11 @@
-name: main_app
+name: flutter_module
 description: A new Flutter module project.
 publish_to: none
 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.19.6 <3.10.1"
+  sdk: ^3.5.3
 
 dependencies:
   flutter:
@@ -32,7 +32,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  pigeon: 9.2.5
+  pigeon: 22.7.4
 
 flutter:
   fonts:
