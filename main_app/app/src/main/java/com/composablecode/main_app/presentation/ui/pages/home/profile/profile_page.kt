@@ -1,8 +1,7 @@
-package com.composablecode.main_app.ui.pages.home.profile
+package com.composablecode.main_app.presentation.ui.pages.home.profile
 
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
@@ -10,7 +9,6 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -22,7 +20,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -86,7 +83,7 @@ fun ProfilePage(modifier: Modifier = Modifier) {
                             modifier = modifier,
                             title = {},
                             navigationIcon = {
-                                IconButton(onClick = { /* handle click */ }) {
+                                IconButton(onClick = { println("aaaaaaaaaa") }) {
                                     Image(
                                         painter = painterResource(id = R.drawable.drawer_icon),
                                         contentDescription = "Drawer icon",

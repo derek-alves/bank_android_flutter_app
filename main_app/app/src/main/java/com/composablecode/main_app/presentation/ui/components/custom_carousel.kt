@@ -20,13 +20,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.res.painterResource
+
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.util.lerp
-import com.google.android.material.animation.AnimationUtils.lerp
+
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlin.math.absoluteValue
 
 @Composable
 fun CustomCarousel(
@@ -39,10 +36,18 @@ fun CustomCarousel(
     ),
     positionCallback: (position: Int) -> Unit
 ) {
-    HorizontalPager( state = state) {
-        Log.d("components", composable.size.toString())
-        composable[it]()
+    HorizontalPager(
+        modifier = modifier.fillMaxSize(),
+        state = state,
 
+    ) { pageIndex ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center // 👈 centraliza o conteúdo na página
+        ) {
+            composable[pageIndex]()
+        }
     }
 
     LaunchedEffect(state) {

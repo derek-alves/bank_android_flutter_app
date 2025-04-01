@@ -1,4 +1,4 @@
-package com.composablecode.main_app.ui.pages.mail
+package com.composablecode.main_app.presentation.ui.pages.mail
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.viewinterop.AndroidViewBinding

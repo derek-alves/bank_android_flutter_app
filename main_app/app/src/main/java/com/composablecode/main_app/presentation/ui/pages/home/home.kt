@@ -1,4 +1,4 @@
-package com.bank.app_android.ui.pages.home
+package com.composablecode.main_app.presentation.ui.pages.home
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
 import androidx.navigation.compose.rememberNavController
 import com.composablecode.main_app.R
-import com.composablecode.main_app.infra.routes.NavigationHost
+import com.composablecode.main_app.presentation.routes.NavigationHost
 import com.bank.app_android.ui.components.BottomMenuContent
 import com.bank.app_android.ui.components.CustomBottomBar
 
@@ -41,10 +41,7 @@ fun Home() {
                 layout(constraints.maxWidth, constraints.maxHeight) {
                     placeable.place(0, constraints.maxHeight - placeable.height)
                 }
-
             }
-
         }
-
     }
 }

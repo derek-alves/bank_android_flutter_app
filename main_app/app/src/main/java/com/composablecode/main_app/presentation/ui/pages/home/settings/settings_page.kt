@@ -1,4 +1,4 @@
-package com.composablecode.main_app.ui.pages.home.settings
+package com.composablecode.main_app.presentation.ui.pages.home.settings
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.viewinterop.AndroidViewBinding

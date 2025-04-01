@@ -27,6 +27,7 @@ import com.bank.app_android.ui.theme.neutralGradientColor
 import com.bank.app_android.ui.theme.orangeGradient
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 
 @Composable
 fun CustomBottomBar(
@@ -75,6 +76,11 @@ fun CustomBottomBar(
                 NavigationBarItem(
                     selected = selected,
                     onClick = { onItemClick(item) },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = Color.Unspecified, // ou qualquer cor
+                        selectedTextColor = Color.Unspecified, // ou qualquer cor
+                        indicatorColor = Color.Transparent     // remove o destaque de fundo
+                    ),
                     icon = {
                         Icon(
                             painter = painterResource(id = item.iconId),

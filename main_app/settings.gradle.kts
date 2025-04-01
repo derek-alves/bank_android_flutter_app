@@ -1,12 +1,6 @@
 pluginManagement {
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -16,12 +10,14 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(url = "https://storage.googleapis.com/download.flutter.io")
 
-        maven {
-            url = uri("https://storage.googleapis.com/download.flutter.io")
-        }
     }
+
+
 }
+
+
 
 rootProject.name = "main_app"
 include(":app")

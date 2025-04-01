@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -11,14 +12,22 @@ android {
     defaultConfig {
         applicationId = "com.composablecode.main_app"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters += listOf("armeabi-v7a", "arm64-v8a", "x86_64")
+        }
     }
 
     buildTypes {
+        create("profile") {
+            initWith(getByName("debug"))
+            matchingFallbacks += listOf("debug")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -38,6 +47,11 @@ android {
         compose = true
         viewBinding = true
     }
+}
+
+
+ksp {
+    arg("KOIN_CONFIG_CHECK","true")
 }
 
 dependencies {
@@ -60,7 +74,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.accompanist.systemuicontroller)
-
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.navigation.ui.ktx)
 
@@ -68,5 +83,12 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.koin.annotations)
+
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+
+    ksp(libs.koin.ksp)
+
 
 }
