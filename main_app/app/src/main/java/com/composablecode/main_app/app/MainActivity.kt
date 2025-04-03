@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
 
 }
 
-
+//https://github.dev/caosytrung/AndroidMultiFlutterModules/blob/master/app/src/main/java/com/trungcs/multifluttersintoandroid/flutter/first_module/FlutterFirstModuleActivity.kt
 
 
 
