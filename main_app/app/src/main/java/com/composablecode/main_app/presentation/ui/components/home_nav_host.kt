@@ -27,7 +27,7 @@ fun HomeNavHost() {
                     },
 
                     items = listOf(
-                        BottomMenuContent("profile", "profile", R.drawable.profile),
+                        BottomMenuContent("home", "home", R.drawable.profile),
                         BottomMenuContent("charts", "chart", R.drawable.chart),
                         BottomMenuContent("mail", "mail", R.drawable.mail),
                         BottomMenuContent("settings", "settings", R.drawable.settings),

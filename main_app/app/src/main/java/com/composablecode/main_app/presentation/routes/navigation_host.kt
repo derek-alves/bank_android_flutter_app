@@ -14,15 +14,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.composablecode.main_app.databinding.CustomAppBarBinding
-import com.composablecode.main_app.presentation.ui.pages.home.home_page.ProfilePage
+import com.composablecode.main_app.presentation.ui.pages.home.home_page.HomePage
 import com.composablecode.main_app.presentation.ui.pages.home.settings.SettingPage
 import com.composablecode.main_app.presentation.ui.pages.home.mail.MailPage
 
 @Composable
 fun NavigationHost(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "profile") {
-        composable("profile") {
-            ProfilePage()
+    NavHost(navController = navController, startDestination = "home") {
+        composable("home") {
+            HomePage()
         }
         composable("chart") {
             AnyPage()

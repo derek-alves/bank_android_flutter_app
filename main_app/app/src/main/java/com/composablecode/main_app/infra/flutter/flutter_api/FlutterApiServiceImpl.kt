@@ -3,14 +3,16 @@ package com.composablecode.main_app.infra.flutter.flutter_api
 import com.composablecode.main_app.infra.flutter.flutter_communication.FlutterCommunicationChannel
 import com.composablecode.main_app.infra.flutter.flutter_communication.MicroApp
 import com.composablecode.main_app.infra.flutter.flutter_communication.Route
+import com.composablecode.main_app.infra.flutter.flutter_engine.FlutterEngineHandler
 import io.flutter.embedding.engine.FlutterEngine
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 class FlutterApiServiceImpl(
-    private val flutterEngine: FlutterEngine
+    flutterEngineHandler: FlutterEngineHandler
 ): FlutterApiService {
-    private val featureFlutterApi = FlutterCommunicationChannel(flutterEngine.dartExecutor.binaryMessenger)
+    private val  engine = flutterEngineHandler.getEngine()
+    private val featureFlutterApi = FlutterCommunicationChannel(engine.dartExecutor.binaryMessenger)
 
     override suspend fun syncFeatures(): Result<List<Feature>> =
         suspendCoroutine { continuation ->

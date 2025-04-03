@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Main_app"
         tools:targetApi="31">
         <activity
-            android:name="com.composablecode.main_app.MainActivity"
+            android:name="com.composablecode.main_app.app.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Main_app">
             <intent-filter>
@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".app.MainFlutterActivity"/>
     </application>
 
 </manifest>
