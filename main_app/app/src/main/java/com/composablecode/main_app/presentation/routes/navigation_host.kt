@@ -14,9 +14,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.composablecode.main_app.databinding.CustomAppBarBinding
-import com.composablecode.main_app.presentation.ui.pages.home.profile.ProfilePage
+import com.composablecode.main_app.presentation.ui.pages.home.home_page.ProfilePage
 import com.composablecode.main_app.presentation.ui.pages.home.settings.SettingPage
-import com.composablecode.main_app.presentation.ui.pages.mail.MailPage
+import com.composablecode.main_app.presentation.ui.pages.home.mail.MailPage
 
 @Composable
 fun NavigationHost(navController: NavHostController) {
