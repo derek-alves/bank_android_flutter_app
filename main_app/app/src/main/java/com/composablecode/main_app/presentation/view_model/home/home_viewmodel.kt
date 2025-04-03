@@ -1,6 +1,5 @@
 package com.composablecode.main_app.presentation.view_model.home
 
-import androidx.compose.runtime.snapshots.SnapshotApplyResult
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.composablecode.main_app.domain.model.FeatureModel

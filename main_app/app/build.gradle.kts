@@ -55,7 +55,7 @@ ksp {
 }
 
 dependencies {
-
+    implementation(project(":flutter"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -90,7 +90,7 @@ dependencies {
 
     ksp(libs.koin.ksp)
 
-    debugImplementation(libs.flutter.debug)
-    releaseImplementation(libs.flutter.release)
-    add("profileImplementation", "com.example.main_module:flutter_profile:1.0")
+//    debugImplementation(libs.flutter.debug)
+//    releaseImplementation(libs.flutter.release)
+//    add("profileImplementation", "com.example.main_module:flutter_profile:1.0")
 }
