@@ -13,8 +13,4 @@ class MainFlutterActivity: FlutterActivity() {
             MainFlutterEngineHandler.ENGINE_ID
         ).build(context).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
     }
-
-    companion object{
-
-    }
 }
