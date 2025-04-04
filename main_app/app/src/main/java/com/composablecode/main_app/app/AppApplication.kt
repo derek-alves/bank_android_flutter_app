@@ -1,6 +1,8 @@
 package com.composablecode.main_app.app
 
 import android.app.Application
+import com.composablecode.main_app.app.di.appModule
+import com.composablecode.main_app.di.externalFeatureModule
 import com.composablecode.main_app.di.homeModule
 import com.composablecode.main_app.infra.di.flutterDiModule
 import org.koin.android.ext.koin.androidContext
@@ -11,7 +13,7 @@ class AppApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@AppApplication)
-            modules(listOf(flutterDiModule,homeModule))
+            modules(listOf(flutterDiModule, externalFeatureModule, appModule, homeModule))
         }
     }
 }

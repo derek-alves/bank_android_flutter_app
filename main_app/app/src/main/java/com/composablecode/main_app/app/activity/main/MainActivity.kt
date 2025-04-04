@@ -1,4 +1,4 @@
-package com.composablecode.main_app.app
+package com.composablecode.main_app.app.activity.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
