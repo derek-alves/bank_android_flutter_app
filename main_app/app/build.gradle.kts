@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.composablecode.main_app"
-        minSdk = 24
+        minSdk = 31
         //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
@@ -51,7 +51,7 @@ android {
 
 
 ksp {
-    arg("KOIN_CONFIG_CHECK","true")
+    arg("KOIN_CONFIG_CHECK", "true")
 }
 
 dependencies {
@@ -88,7 +88,10 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
 
+    implementation(libs.kotlinx.coroutines.core)
+
     ksp(libs.koin.ksp)
+
 
 //    debugImplementation(libs.flutter.debug)
 //    releaseImplementation(libs.flutter.release)

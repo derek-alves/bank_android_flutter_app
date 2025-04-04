@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.composablecode.main_app.domain.model.FeatureModel
 import com.composablecode.main_app.domain.usecase.GetExternalFeaturesUseCase
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -41,12 +42,14 @@ class HomeViewmodel(
         }
     }
 
-    private  suspend fun initData(){
+    private suspend fun initData() {
         loadFeatures()
     }
+
     private suspend fun loadFeatures() {
         _uiState.value = _uiState.value.copy(event = HomeEvent.Loading)
         try {
+            delay(2000)
             val features = getExternalFeaturesUseCase.get()
             _uiState.value = _uiState.value.copy(event = HomeEvent.Success, features = features)
         } catch (ex: Exception) {
@@ -62,14 +65,16 @@ data class HomeState(
     val features: List<FeatureModel> = emptyList(),
     val event: HomeEvent = HomeEvent.None,
 )
-sealed class  HomeEvent{
-    data object Loading: HomeEvent()
-    data class Error(val message: String?): HomeEvent()
+
+sealed class HomeEvent {
+    data object Loading : HomeEvent()
+    data class Error(val message: String?) : HomeEvent()
     data object Success : HomeEvent()
-    data object  None : HomeEvent()
+    data object None : HomeEvent()
 
 }
+
 sealed class HomeAction {
     data object InitData : HomeAction()
-    data object LoadFeatures: HomeAction()
+    data object LoadFeatures : HomeAction()
 }

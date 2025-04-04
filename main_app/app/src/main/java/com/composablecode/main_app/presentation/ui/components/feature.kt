@@ -1,12 +1,17 @@
-package com.bank.app_android.ui.components
+package com.composablecode.main_app.presentation.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,11 +22,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.bank.app_android.ui.theme.brownGradientColor
 import com.composablecode.main_app.R
+import com.composablecode.main_app.domain.model.FeatureModel
 
 
 @Composable
-fun Feature(modifier: Modifier){
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+fun Feature(modifier: Modifier = Modifier, featureModel: FeatureModel, onClick: () -> Unit = {}) {
+    Column(modifier = modifier.clickable {
+        onClick.invoke()
+    }, horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
             modifier = modifier
                 .size(57.dp)
@@ -37,6 +45,9 @@ fun Feature(modifier: Modifier){
             )
         }
         Spacer(modifier = modifier.height(2.dp))
-        Text("Transfer", style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Light))
+        Text(
+            featureModel.name,
+            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Light)
+        )
     }
 }

@@ -1,5 +1,6 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class StatementsPage extends StatelessWidget with DesignSystemMixin {
   StatementsPage({super.key});
@@ -9,6 +10,9 @@ class StatementsPage extends StatelessWidget with DesignSystemMixin {
     return Scaffold(
       appBar: AppBarCustom(
         title: Text("Statements", style: textTheme.titleMedium),
+        onBackButtonPressed: () {
+          SystemNavigator.pop();
+        },
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -156,10 +160,17 @@ class StatementsPage extends StatelessWidget with DesignSystemMixin {
                       ),
                     ),
                   ),
-                  TransactionItem(
-                    title: 'Wire Transfer',
-                    description: 'Ja Morant - Vermont 98821231',
-                    value: '14000,00',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(
+                        context,
+                      ).pushNamed('/statements/income-details');
+                    },
+                    child: TransactionItem(
+                      title: 'Wire Transfer',
+                      description: 'Ja Morant - Vermont 98821231',
+                      value: '14000,00',
+                    ),
                   ),
                   TransactionItem(
                     title: 'Wire Transfer',

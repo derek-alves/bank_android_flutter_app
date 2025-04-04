@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
-  const AppBarCustom({super.key, required this.title});
+  final void Function()? onBackButtonPressed;
+  const AppBarCustom({
+    super.key,
+    required this.title,
+    this.onBackButtonPressed,
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -11,7 +16,11 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        onPressed: () {},
+        onPressed:
+            onBackButtonPressed ??
+            () {
+              Navigator.of(context).pop();
+            },
         icon: const Icon(Icons.arrow_back_ios),
         padding: const EdgeInsets.only(left: 26),
       ),
